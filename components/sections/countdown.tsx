@@ -21,10 +21,10 @@ export function Countdown() {
 
   useEffect(() => {
     const calculateTimeLeft = () => {
-      // Target: December 28, 2025 at 11:00 AM GMT+8
+      // Target: March 14, 2026 at 2:00 PM GMT+8
       // Compute using UTC to avoid timezone parsing inconsistencies across browsers
-      // 11:00 AM GMT+8 == 03:00 AM UTC
-      const targetDate = Date.UTC(2025, 11, 28, 3, 0, 0) // December is month 11 (0-indexed)
+      // 2:00 PM GMT+8 == 06:00 AM UTC
+      const targetDate = Date.UTC(2026, 2, 14, 6, 0, 0) // March is month 2 (0-indexed)
       const now = new Date().getTime()
       const difference = targetDate - now
 
@@ -56,10 +56,10 @@ export function Countdown() {
       {/* Simple, elegant card */}
       <div className="relative group">
         {/* Subtle glow on hover */}
-        <div className="absolute -inset-1 bg-gradient-to-br from-[#C3A161]/20 to-[#751A2C]/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg" />
+        <div className="absolute -inset-1 bg-gradient-to-br from-[#1A1A1A]/20 to-[#1A1A1A]/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg" />
         
         {/* Main card */}
-        <div className="relative bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl px-3 py-4 sm:px-5 sm:py-5 md:px-6 md:py-6 lg:px-8 lg:py-7 border border-[#C3A161]/30 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-[#C3A161]/50 min-w-[65px] sm:min-w-[75px] md:min-w-[90px] lg:min-w-[100px]">
+        <div className="relative bg-white backdrop-blur-sm rounded-xl sm:rounded-2xl px-3 py-4 sm:px-5 sm:py-5 md:px-6 md:py-6 lg:px-8 lg:py-7 border-2 border-[#1A1A1A]/40 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-[#1A1A1A]/60 min-w-[65px] sm:min-w-[75px] md:min-w-[90px] lg:min-w-[100px]">
           {/* Counter */}
           <div className="relative z-10 flex items-center justify-center">
             <Counter
@@ -68,12 +68,12 @@ export function Countdown() {
               fontSize={36}
               padding={6}
               gap={3}
-              textColor="#0A3428"
-              fontWeight={600}
+              textColor="#1A1A1A"
+              fontWeight={700}
               borderRadius={8}
               horizontalPadding={4}
               gradientHeight={10}
-              gradientFrom="rgba(10,52,40,0.08)"
+              gradientFrom="rgba(26,26,26,0.08)"
               gradientTo="transparent"
             />
           </div>
@@ -81,7 +81,7 @@ export function Countdown() {
       </div>
 
       {/* Simple label */}
-      <span className="text-xs sm:text-sm font-medium text-[#FFFFFF]/90 uppercase tracking-wider">
+      <span className="text-xs sm:text-sm font-[family-name:var(--font-crimson)] font-semibold text-[#1A1A1A] uppercase tracking-wider drop-shadow-sm">
         {label}
       </span>
     </div>
@@ -90,45 +90,25 @@ export function Countdown() {
   return (
     <Section
       id="countdown"
-      className="relative bg-gradient-to-b from-[#0A3428] via-[#106552]/90 to-[#0A3428] py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden"
+      className="relative py-16 sm:py-20 md:py-24 lg:py-28 bg-[#E8DCC8]/50"
     >
-      {/* Subtle background elements */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Soft gradient overlays */}
-        <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#C3A161]/5 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#C3A161]/5 to-transparent" />
-        
-        {/* Bottom-left flower decoration */}
-        <img
-          src="/decoration/rigth-bottom-corner-flower.png"
-          alt=""
-          aria-hidden="true"
-          className="absolute bottom-0 left-0 z-10 w-64 sm:w-80 md:w-96 lg:w-[28rem] xl:w-[32rem] opacity-90 select-none pointer-events-none scale-x-[-1]"
-        />
-        
-        {/* Bottom-right flower decoration */}
-        <img
-          src="/decoration/rigth-bottom-corner-flower.png"
-          alt=""
-          aria-hidden="true"
-          className="absolute bottom-0 right-0 z-10 w-64 sm:w-80 md:w-96 lg:w-[28rem] xl:w-[32rem] opacity-90 select-none pointer-events-none"
-        />
-      </div>
-
+      {/* Semi-transparent overlay for better text readability */}
+      <div className="absolute inset-0 bg-white/40 backdrop-blur-sm pointer-events-none" />
+      
       {/* Header */}
-      <div className="relative z-10 text-center mb-10 sm:mb-12 md:mb-16 px-4">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-[#FFFFFF] mb-4 sm:mb-6 drop-shadow-md">
+      <div className="relative z-10 text-center mb-12 sm:mb-16 md:mb-20 px-4 sm:px-6">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-[family-name:var(--font-crimson)] font-normal text-[#1A1A1A] mb-6 sm:mb-8 uppercase tracking-[0.12em] sm:tracking-[0.15em] drop-shadow-sm">
           Countdown to Our Special Day
         </h2>
         
-        <p className="text-sm sm:text-base md:text-lg text-[#FFFFFF]/90 font-light max-w-xl mx-auto leading-relaxed">
+        <p className="text-base sm:text-lg md:text-xl font-[family-name:var(--font-crimson)] text-[#1A1A1A] font-light max-w-xl mx-auto leading-relaxed tracking-wide drop-shadow-sm px-4">
           Every moment brings us closer to forever
         </p>
       </div>
 
       {/* Main countdown container */}
       <div className="relative z-10">
-        <div className="flex justify-center items-center gap-2 sm:gap-3 md:gap-4 lg:gap-6 mb-8 sm:mb-10 md:mb-12 flex-wrap px-4">
+        <div className="flex justify-center items-center gap-3 sm:gap-4 md:gap-5 lg:gap-7 mb-12 sm:mb-16 md:mb-20 flex-wrap px-4 sm:px-6">
           <CountdownUnit value={timeLeft.days} label="Days" />
           <CountdownUnit value={timeLeft.hours} label="Hours" />
           <CountdownUnit value={timeLeft.minutes} label="Minutes" />
@@ -136,81 +116,75 @@ export function Countdown() {
         </div>
 
         {/* Wedding date presentation - Save The Date Card Style */}
-        <div className="flex justify-center px-4">
+        <div className="flex justify-center px-4 sm:px-6">
           <div className="max-w-2xl w-full">
             {/* Save The Date Header */}
-            <div className="text-center mb-8 sm:mb-10 md:mb-12">
-              {/* Top decorative dots */}
-              <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
-                <div className="w-1 h-1 bg-[#C3A161]/60 rounded-full" />
-                <div className="w-1 h-1 bg-[#C3A161]/40 rounded-full" />
-                <div className="w-1 h-1 bg-[#C3A161]/60 rounded-full" />
+            <div className="text-center mb-10 sm:mb-12 md:mb-16">
+              {/* Top decorative line */}
+              <div className="flex items-center justify-center gap-3 sm:gap-4 mb-4 sm:mb-5">
+                <div className="h-px w-10 sm:w-14 md:w-20 bg-[#1A1A1A]/50" />
+                <div className="w-1.5 h-1.5 bg-[#1A1A1A]/60 rounded-full" />
+                <div className="h-px w-10 sm:w-14 md:w-20 bg-[#1A1A1A]/50" />
               </div>
               
               {/* Save The Date text */}
-              <p className="text-xs sm:text-sm md:text-base font-sans font-medium text-[#C3A161] uppercase tracking-[0.2em] sm:tracking-[0.3em] mb-3 sm:mb-4">
+              <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] font-bold text-[#1A1A1A] uppercase tracking-[0.2em] sm:tracking-[0.3em] mb-4 sm:mb-5">
                 Save The Date
               </p>
               
-              {/* Bottom decorative dots */}
-              <div className="flex items-center justify-center gap-2">
-                <div className="w-1 h-1 bg-[#C3A161]/60 rounded-full" />
-                <div className="w-1 h-1 bg-[#C3A161]/40 rounded-full" />
-                <div className="w-1 h-1 bg-[#C3A161]/60 rounded-full" />
+              {/* Bottom decorative line */}
+              <div className="flex items-center justify-center gap-3 sm:gap-4">
+                <div className="h-px w-10 sm:w-14 md:w-20 bg-[#1A1A1A]/50" />
+                <div className="w-1.5 h-1.5 bg-[#1A1A1A]/60 rounded-full" />
+                <div className="h-px w-10 sm:w-14 md:w-20 bg-[#1A1A1A]/50" />
               </div>
             </div>
 
             {/* Date Section - Elegant Layout */}
-            <div className="text-center mb-8 sm:mb-10 md:mb-12">
-              {/* Month - Elegant script style */}
-              <div className="mb-4 sm:mb-5 md:mb-6">
-                <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif italic text-[#FFFFFF] leading-none" style={{
-                  fontFamily: "var(--font-serif)",
-                  fontStyle: "italic",
-                  fontWeight: 300
-                }}>
-                  December
+            <div className="text-center mb-10 sm:mb-12 md:mb-16">
+              {/* Month - Script style like "and" in hero */}
+              <div className="mb-5 sm:mb-6 md:mb-8">
+                <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-[family-name:var(--font-ephesis)] text-[#1A1A1A] leading-none drop-shadow-sm">
+                  March
                 </p>
               </div>
               
               {/* Day and Year - Horizontal layout with divider */}
-              <div className="flex items-center justify-center gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-8">
+              <div className="flex items-center justify-center gap-4 sm:gap-5 md:gap-7 mb-8 sm:mb-10">
                 {/* Day - Large and bold focal point */}
-                <p className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem] font-serif font-bold text-[#C3A161] leading-none drop-shadow-lg" style={{
-                  textShadow: "0 4px 20px rgba(195, 161, 97, 0.3)"
-                }}>
-                  28
+                <p className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem] font-[family-name:var(--font-crimson)] font-normal text-[#1A1A1A] leading-none drop-shadow-md">
+                  14
                 </p>
                 
                 {/* Vertical divider */}
-                <div className="h-16 sm:h-20 md:h-24 lg:h-28 w-px bg-[#C3A161]/50" />
+                <div className="h-16 sm:h-20 md:h-24 lg:h-28 w-0.5 bg-[#1A1A1A]/50" />
                 
                 {/* Year - Elegant and refined */}
-                <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-light text-[#FFFFFF] leading-none">
-                  2025
+                <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-[family-name:var(--font-crimson)] font-normal text-[#1A1A1A] leading-none drop-shadow-sm">
+                  2026
                 </p>
               </div>
             </div>
 
             {/* Time Section */}
             <div className="text-center">
-              {/* Top decorative dots */}
-              <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
-                <div className="w-1 h-1 bg-[#C3A161]/60 rounded-full" />
-                <div className="w-1 h-1 bg-[#C3A161]/40 rounded-full" />
-                <div className="w-1 h-1 bg-[#C3A161]/60 rounded-full" />
+              {/* Top decorative line */}
+              <div className="flex items-center justify-center gap-3 sm:gap-4 mb-4 sm:mb-5">
+                <div className="h-px w-10 sm:w-14 md:w-20 bg-[#1A1A1A]/50" />
+                <div className="w-1.5 h-1.5 bg-[#1A1A1A]/60 rounded-full" />
+                <div className="h-px w-10 sm:w-14 md:w-20 bg-[#1A1A1A]/50" />
               </div>
               
               {/* Time */}
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-sans font-medium text-[#C3A161] tracking-wide mb-3 sm:mb-4">
-                11:00 AM
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-[family-name:var(--font-crimson)] font-semibold text-[#1A1A1A] tracking-wide mb-4 sm:mb-5 drop-shadow-sm">
+                2 O'CLOCK
               </p>
               
-              {/* Bottom decorative dots */}
-              <div className="flex items-center justify-center gap-2">
-                <div className="w-1 h-1 bg-[#C3A161]/60 rounded-full" />
-                <div className="w-1 h-1 bg-[#C3A161]/40 rounded-full" />
-                <div className="w-1 h-1 bg-[#C3A161]/60 rounded-full" />
+              {/* Bottom decorative line */}
+              <div className="flex items-center justify-center gap-3 sm:gap-4">
+                <div className="h-px w-10 sm:w-14 md:w-20 bg-[#1A1A1A]/50" />
+                <div className="w-1.5 h-1.5 bg-[#1A1A1A]/60 rounded-full" />
+                <div className="h-px w-10 sm:w-14 md:w-20 bg-[#1A1A1A]/50" />
               </div>
             </div>
           </div>

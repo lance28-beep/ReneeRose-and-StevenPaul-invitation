@@ -1,33 +1,44 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Great_Vibes, Inter } from "next/font/google"
+import { Great_Vibes, Inter, Crimson_Text, Ephesis } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { Navbar } from "@/components/navbar"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const greatVibes = Great_Vibes({ subsets: ["latin"], weight: "400", variable: "--font-serif" })
+const crimsonText = Crimson_Text({ 
+  subsets: ["latin"], 
+  weight: ["400", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-crimson" 
+})
+const ephesis = Ephesis({ 
+  subsets: ["latin"], 
+  weight: "400",
+  variable: "--font-ephesis" 
+})
 
 export const metadata: Metadata = {
-  title: "Brendan & Airez - Wedding Invitation",
+  title: "Marvin & Annie - Wedding Invitation",
   description:
-    "You're invited to the wedding of Brendan & Airez! Join us on December 28, 2025 in SMDC Jazz Residence. RSVP, read our love story, view our gallery, and leave a message for the couple.",
+    "You're invited to the wedding of Marvin & Annie! Join us on March 14, 2026 in Iloilo Convention Center. RSVP, read our love story, view our gallery, and leave a message for the couple.",
   keywords:
-    "Brendan Airez wedding, Filipino wedding, RSVP, wedding gallery, wedding message wall, wedding invitation, 2025 weddings, love story, guestbook, wedding registry, wedding details, wedding venues SMDC Jazz Residence, #BrendanAndAirezWedding",
+    "Marvin & Annie wedding, Filipino wedding, RSVP, wedding gallery, wedding message wall, wedding invitation, 2026 weddings, love story, guestbook, wedding registry, wedding details, wedding venues Iloilo Convention Center, #MarvinAndAnnieWedding",
   authors: [
-    { name: "Brendan" },
-    { name: "Airez" },
+    { name: "Marvin" },
+    { name: "Annie" },
   ],
-  creator: "Brendan & Airez",
-  publisher: "Brendan & Airez",
+  creator: "Marvin & Annie",
+  publisher: "Marvin & Annie",
   formatDetection: {
     email: false,
     address: false,
     telephone: true,
   },
-  metadataBase: new URL("https://Airez-and-Brendan-invitation.vercel.app/"),
+  metadataBase: new URL("https://Marvin-and-Annie-invitation.vercel.app/"),
   alternates: {
-    canonical: "https://Airez-and-Brendan-invitation.vercel.app/",
+    canonical: "https://Marvin-and-Annie-invitation.vercel.app/",
   },
   icons: {
     icon: [
@@ -49,29 +60,29 @@ export const metadata: Metadata = {
   },
   manifest: "/favicon_io/site.webmanifest",
   openGraph: {
-    title: "Brendan & Airez Wedding | December 28, 2025",
+    title: "Marvin & Annie Wedding | March 14, 2026",
     description:
-      "Celebrate the union of Brendan & Airez on December 28, 2025 in SMDC Jazz Residence. Discover our love story, RSVP, view the gallery, and leave your wishes!",
-    url: "https://Airez-and-Brendan-invitation.vercel.app/",
-    siteName: "Airez and Brendan Wedding ",
+      "Celebrate the union of Marvin & Annie on March 14, 2026 in Iloilo Convention Center. Discover our love story, RSVP, view the gallery, and leave your wishes!",
+    url: "https://Marvin-and-Annie-invitation.vercel.app/",
+    siteName: "Marvin and Annie Wedding ",
     locale: "en_PH",
     type: "website",
     images: [
       {
-        url: "https://Airez-and-Brendan-invitation.vercel.app/desktop-background/couple (1).jpg",
+        url: "https://Marvin-and-Annie-invitation.vercel.app/Details/image.png",
         width: 1200,
         height: 630,
-        alt: "Brendan & Airez Wedding Invitation - December 28, 2025",
+        alt: "Marvin & Annie Wedding Invitation - March 14, 2026",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Brendan & Airez Wedding Invitation",
+    title: "Marvin & Annie Wedding Invitation",
     description:
-      "You're invited to the wedding of Brendan & Airez! December 28, 2025. RSVP, view our gallery, and leave a message! #BrendanAndAirezWedding",
-    images: ["https://Airez-and-Brendan-invitation.vercel.app/desktop-background/couple (1).jpg"],
-    creator: "@airezandbrendan",
+      "You're invited to the wedding of Marvin & Annie! March 14, 2026. RSVP, view our gallery, and leave a message! #MarvinAndAnnieWedding",
+    images: ["https://Marvin-and-Annie-invitation.vercel.app/Details/image.png"],
+    creator: "@marvinandannie",
   },
   robots: {
     index: true,
@@ -91,7 +102,7 @@ export const metadata: Metadata = {
     "application/ld+json": JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Event",
-      name: "Brendan & Airez Wedding",
+      name: "Marvin & Annie Wedding",
       startDate: "2026-02-14T14:00:00+08:00",
       endDate: "2026-02-14T22:00:00+08:00",
       eventStatus: "https://schema.org/EventScheduled",
@@ -99,32 +110,32 @@ export const metadata: Metadata = {
       location: [
         {
           "@type": "Place",
-          name: "SMDC Jazz Residence",
+          name: "Iloilo Convention Center",
           address: {
             "@type": "PostalAddress",
-            streetAddress: "Nicanor Garcia, Tower B, 41st floor and unit 4112",
-            addressLocality: "Makati, Manila",
-            addressRegion: "Metro Manila",
-            postalCode: "1209",
+            streetAddress: "M.J. Cuenco Avenue, Brgy. Mandurriao, Iloilo City",
+            addressLocality: "Iloilo City",
+            addressRegion: "Iloilo",
+            postalCode: "5000",
             addressCountry: "PH",
           },
         },
       ],
-      image: ["https://Airez-and-Brendan-invitation.vercel.app/desktop-background/couple (1).jpg"],
+      image: ["https://Marvin-and-Annie-invitation.vercel.app/Details/image.png"],
       description:
-        "You're invited to the wedding of Brendan & Airez! Join us on December 28, 2025 in SMDC Jazz Residence. RSVP, read our love story, view our gallery, and leave a message for the couple.",
+        "You're invited to the wedding of Marvin & Annie! Join us on March 14, 2026 in Iloilo Convention Center. RSVP, read our love story, view our gallery, and leave a message for the couple.",
       organizer: {
         "@type": "Person",
-        name: "Brendan & Airez",
+        name: "Marvin & Annie",
       },
       offers: {
         "@type": "Offer",
-        url: "https://Airez-and-Brendan-invitation.vercel.app/",
+        url: "https://Marvin-and-Annie-invitation.vercel.app/",
         availability: "https://schema.org/InStock",
         price: "0",
         priceCurrency: "PHP",
       },
-      eventHashtag: "#BrendanAndAirezWedding",
+        eventHashtag: "#MarvinAndAnnieWedding",
     }),
   },
 }
@@ -143,7 +154,7 @@ export default function RootLayout({
         <link rel="preload" as="image" href="/mobile-background/DSCF2614-min.jpg" media="(max-width: 767px)" />
         <link rel="preload" as="image" href="/desktop-background/DSCF2444-min.jpg" media="(min-width: 768px)" />
       </head>
-      <body className={`${inter.variable} ${greatVibes.variable} font-inter antialiased text-foreground`}>
+      <body className={`${inter.variable} ${greatVibes.variable} ${crimsonText.variable} ${ephesis.variable} font-inter antialiased text-foreground`}>
         <Navbar />
         {children}
         <Analytics />

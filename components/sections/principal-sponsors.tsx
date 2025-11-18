@@ -23,7 +23,7 @@ export function PrincipalSponsors() {
     const textAlign =
       align === "right" ? "text-right" : align === "left" ? "text-left" : "text-center"
     return (
-      <h3 className={`anton-regular text-base sm:text-lg md:text-xl lg:text-2xl font-bold uppercase text-[#BB8A3D] mb-2 sm:mb-3 md:mb-4 tracking-[0.15em] ${textAlign} ${className}`}>
+      <h3 className={`text-base sm:text-lg md:text-xl font-[family-name:var(--font-crimson)] font-semibold uppercase text-[#1A1A1A] mb-3 sm:mb-4 md:mb-5 tracking-[0.12em] ${textAlign} ${className}`}>
         {children}
       </h3>
     )
@@ -36,8 +36,8 @@ export function PrincipalSponsors() {
     const textAlign =
       align === "right" ? "text-right" : align === "left" ? "text-left" : "text-center"
     return (
-      <div className={`flex flex-col ${containerAlign} justify-center py-1 sm:py-1.5 md:py-2 w-full`}>
-        <p className={`text-slate-700 text-[13px] sm:text-sm md:text-base font-medium leading-snug break-words ${textAlign}`}>{name}</p>
+      <div className={`flex flex-col ${containerAlign} justify-center py-1.5 sm:py-2 md:py-2.5 w-full`}>
+        <p className={`text-[#1A1A1A] text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] font-medium leading-snug break-words ${textAlign}`}>{name}</p>
       </div>
     )
   }
@@ -75,74 +75,43 @@ export function PrincipalSponsors() {
   return (
     <Section
       id="sponsors"
-      className="relative bg-gradient-to-b from-[#0A3428] via-[#106552]/90 to-[#0A3428] py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden"
+      className="relative min-h-screen py-16 sm:py-20 md:py-24 lg:py-28 overflow-hidden bg-[#E8DCC8]/80"
     >
-      {/* Subtle background elements */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Soft gradient overlays */}
-        <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#C3A161]/5 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#C3A161]/5 to-transparent" />
-        
-        {/* Bottom-left flower decoration */}
-        <img
-          src="/decoration/left-bottom-left-flower.png"
-          alt=""
-          aria-hidden="true"
-          className="absolute bottom-0 left-0 z-10 w-64 sm:w-80 md:w-96 lg:w-[28rem] xl:w-[32rem] opacity-90 select-none pointer-events-none"
-        />
-        
-        {/* Bottom-right flower decoration */}
-        <img
-          src="/decoration/left-bottom-left-flower.png"
-          alt=""
-          aria-hidden="true"
-          className="absolute bottom-0 right-0 z-10 w-64 sm:w-80 md:w-96 lg:w-[28rem] xl:w-[32rem] opacity-90 select-none pointer-events-none scale-x-[-1]"
-        />
-      </div>
-
       {/* Section Header */}
-      <div className="relative z-10 text-center mb-8 sm:mb-10 md:mb-12 px-4">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold text-[#FFFFFF] mb-4 sm:mb-6 drop-shadow-md">
+      <div className="relative z-10 text-center mb-12 sm:mb-16 md:mb-20 px-4 sm:px-6">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-[family-name:var(--font-crimson)] font-normal text-[#1A1A1A] mb-6 sm:mb-8 uppercase tracking-[0.12em] sm:tracking-[0.15em] drop-shadow-sm">
           Principal Sponsors
         </h2>
-        <p className="text-sm sm:text-base md:text-lg text-[#FFFFFF]/90 font-light max-w-xl mx-auto leading-relaxed">
+
+        <p className="text-base sm:text-lg md:text-xl font-[family-name:var(--font-crimson)] text-[#1A1A1A] font-light max-w-xl mx-auto leading-relaxed tracking-wide px-4 drop-shadow-sm">
           Our Beloved Godparents
         </p>
       </div>
 
-      {/* Sponsors content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
-        {/* White card with elegant border */}
-        <div className="relative bg-white/85 backdrop-blur-sm border border-[#F1EDE2]/30 rounded-xl sm:rounded-2xl shadow-2xl overflow-hidden">
-          {/* Inner gold border */}
-          <div className="absolute inset-2 sm:inset-3 md:inset-4 border border-[#F1EDE2] rounded-lg sm:rounded-xl pointer-events-none" />
+      {/* Central Card Container */}
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6">
+        {/* Main card with elegant styling */}
+        <div className="relative group">
+          {/* Subtle glow on hover */}
+          <div className="absolute -inset-1 bg-gradient-to-br from-[#1A1A1A]/20 to-[#1A1A1A]/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg" />
           
-          {/* Card content */}
-          <div className="relative p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12">
-            {/* Global font for Anton to match Entourage section */}
-            <style jsx global>{`
-              @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
-              .anton-regular {
-                font-family: "Anton", sans-serif;
-                font-weight: 400;
-                font-style: normal;
-              }
-            `}</style>
-            <div className="relative z-10 w-full">
+          <div className="relative bg-white backdrop-blur-sm rounded-xl sm:rounded-2xl border-2 border-[#1A1A1A]/40 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-[#1A1A1A]/60 overflow-hidden">
+            {/* Card content */}
+            <div className="relative p-6 sm:p-8 md:p-10 lg:p-12">
               {isLoading ? (
                 <div className="flex items-center justify-center py-24">
                   <div className="flex flex-col items-center gap-4">
-                    <div className="w-12 h-12 border-4 border-[#F1EDE2]/30 border-t-[#F1EDE2] rounded-full animate-spin" />
-                    <span className="text-[#AFC8E6] font-serif text-lg">Loading sponsors...</span>
+                    <div className="w-12 h-12 border-4 border-[#1A1A1A]/30 border-t-[#1A1A1A] rounded-full animate-spin" />
+                    <span className="text-[#1A1A1A]/70 font-[family-name:var(--font-crimson)] text-lg">Loading sponsors...</span>
                   </div>
                 </div>
               ) : error ? (
                 <div className="flex items-center justify-center py-24">
                   <div className="text-center">
-                    <p className="text-red-500 font-serif text-lg mb-2">{error}</p>
+                    <p className="text-red-600 font-[family-name:var(--font-crimson)] text-lg mb-4">{error}</p>
                     <button
                       onClick={fetchSponsors}
-                      className="text-[#AFC8E6] hover:text-[#D8B0B0] font-serif underline"
+                      className="text-[#1A1A1A] hover:text-[#1A1A1A]/70 font-[family-name:var(--font-crimson)] underline transition-colors duration-300"
                     >
                       Try again
                     </button>
@@ -150,7 +119,7 @@ export function PrincipalSponsors() {
                 </div>
               ) : sponsorPairs.length === 0 ? (
                 <div className="text-center py-24">
-                  <p className="text-[#AFC8E6] font-serif text-lg">No sponsors yet</p>
+                  <p className="text-[#1A1A1A]/70 font-[family-name:var(--font-crimson)] text-lg">No sponsors yet</p>
                 </div>
               ) : (
                 <div className="mb-5 sm:mb-7 md:mb-9 lg:mb-12">

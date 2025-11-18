@@ -4,8 +4,6 @@ import { Suspense } from "react"
 import dynamic from "next/dynamic"
 import { Hero } from "@/components/sections/hero"
 import { Countdown } from "@/components/sections/countdown"
-import { Narrative } from "@/components/sections/narrative"
-import { Gallery } from "@/components/sections/gallery"
 import { Messages } from "@/components/sections/messages"
 import { Details } from "@/components/sections/details"
 import { Entourage } from "@/components/sections/entourage"
@@ -29,8 +27,8 @@ export default function Home() {
       {/* Silk Background Animation */}
       {enableDecor && (
         <div className="fixed inset-0 z-0 pointer-events-none">
-          <Suspense fallback={<div className="w-full h-full bg-gradient-to-b from-primary/10 to-secondary/5" />}>
-            <Silk speed={5} scale={1.1} color="#751A2C" noiseIntensity={0.8} rotation={0.3} />
+          <Suspense fallback={<div className="w-full h-full bg-[#E8DCC8]" />}>
+            <Silk speed={3} scale={1.2} color="#E8DCC8" noiseIntensity={0.5} rotation={0.2} />
           </Suspense>
         </div>
       )}
@@ -39,8 +37,6 @@ export default function Home() {
       <div className="relative z-10">
         <Hero />
         <Countdown />
-        <Narrative />
-        <Gallery />
         <Messages />
         <Details />
         <Entourage />

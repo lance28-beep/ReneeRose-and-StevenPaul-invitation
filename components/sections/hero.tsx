@@ -1,278 +1,109 @@
 "use client"
 
-import { useEffect, useState, useMemo } from "react"
+import { useEffect, useState } from "react"
+import Image from "next/image"
 import { siteConfig } from "@/content/site"
-import { Heart, Sparkles } from "lucide-react"
-
-const desktopImages = [
-    "/desktop-background/couple (1).jpg",
-    "/desktop-background/couple (2).jpg",
-    "/desktop-background/couple (3).jpg",
-    "/desktop-background/couple (4).jpg",
-]
-
-const mobileImages = [
-    "/mobile-background/couple (1).jpg",
-    "/mobile-background/couple (2).jpg",
-    "/mobile-background/couple (3).jpg",
-    "/mobile-background/couple (4).jpg",
-    "/mobile-background/couple (5).jpg",
-    "/mobile-background/couple (6).jpg",
-    "/mobile-background/couple (7).jpg",
-    "/mobile-background/couple (8).jpg",
-    "/mobile-background/couple (9).jpg",
-    "/mobile-background/couple (10).jpg",
-    "/mobile-background/couple (11).jpg",
-    "/mobile-background/couple (12).jpg",
-    "/mobile-background/couple (13).jpg",
-    "/mobile-background/couple (14).jpg",
-    "/mobile-background/couple (15).jpg",
-    "/mobile-background/couple (16).jpg",
-    "/mobile-background/couple (17).jpg",
-    "/mobile-background/couple (18).jpg",
-    "/mobile-background/couple (19).jpg",
-    "/mobile-background/couple (20).jpg",
-    "/mobile-background/couple (21).jpg",
-    "/mobile-background/couple (22).jpg",
-    "/mobile-background/couple (23).jpg",
-]
+import { Heart } from "lucide-react"
 
 export function Hero() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
-  const [imagesLoaded, setImagesLoaded] = useState(false)
-  const [isMobile, setIsMobile] = useState(false)
-
-  // Detect screen size and update isMobile state
-  useEffect(() => {
-    const checkScreenSize = () => {
-      setIsMobile(window.innerWidth < 768) // md breakpoint
-    }
-    
-    // Check on mount
-    checkScreenSize()
-    
-    // Listen for resize events
-    window.addEventListener('resize', checkScreenSize)
-    
-    return () => window.removeEventListener('resize', checkScreenSize)
-  }, [])
-
-  // Get the appropriate image array based on screen size
-  const backgroundImages = useMemo(() => {
-    return isMobile ? mobileImages : desktopImages
-  }, [isMobile])
-
-  // Preload images progressively - show first image immediately
-  useEffect(() => {
-    setImagesLoaded(false)
-    setCurrentImageIndex(0)
-    
-    // Load first image with priority to show it immediately
-    const firstImg = new Image()
-    firstImg.src = backgroundImages[0]
-    firstImg.onload = () => {
-      setImagesLoaded(true) // Show first image immediately
-    }
-    
-    // Then preload a small lookahead set in background (avoid preloading all)
-    setTimeout(() => {
-      if (typeof navigator !== 'undefined' && (navigator as any).connection?.saveData) return
-      backgroundImages.slice(1, 3).forEach((src) => {
-        const img = new Image()
-        img.decoding = 'async'
-        img.loading = 'lazy' as any
-        img.src = src
-      })
-    }, 200)
-  }, [backgroundImages])
-
-  useEffect(() => {
-    if (!imagesLoaded) return
-    
-    const imageTimer = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % backgroundImages.length)
-    }, 5000)
-    return () => clearInterval(imageTimer)
-  }, [imagesLoaded, backgroundImages])
-
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
-    if (imagesLoaded) {
-      setIsVisible(true)
-    }
-  }, [imagesLoaded])
+    setIsVisible(true)
+  }, [])
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0A3428]">
-      <div className="absolute inset-0 w-full h-full">
-        {imagesLoaded && backgroundImages.map((image, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out ${
-              index === currentImageIndex ? "opacity-100" : "opacity-0"
-            }`}
-            style={{
-              backgroundImage: `url('${image}')`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-              willChange: "opacity",
-            }}
-          />
-        ))}
-        {/* Enhanced gradient overlay with better depth */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A3428]/95 via-[#0A3428]/50 via-[#0A3428]/30 to-transparent z-0" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0A3428]/20 z-0" />
-      </div>
-
-      <div className="relative z-10 w-full container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 flex flex-col items-center justify-end min-h-screen pb-12 sm:pb-20 md:pb-28 lg:pb-40 xl:pb-48">
-        <div className={`w-full max-w-4xl text-center space-y-4 sm:space-y-5 md:space-y-6 lg:space-y-8 transition-all duration-1000 ease-out ${
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#E8DCC8]/80">
+      <div className="relative z-10 w-full container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 flex flex-col items-center justify-center min-h-screen py-16 sm:py-20">
+        <div className={`w-full max-w-3xl text-center space-y-4 sm:space-y-6 md:space-y-8 lg:space-y-10 transition-all duration-1000 ease-out ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          {/* Warm invitation line */}
-          <div className="space-y-2 sm:space-y-3 mb-2 sm:mb-4">
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl font-light text-[#FFFFFF]/90 drop-shadow-lg tracking-wide">
-              We are delighted to invite you to celebrate our special day
-            </p>
-            {/* Decorative divider with gold accent */}
-            <div className="flex items-center justify-center gap-3 sm:gap-4 py-1">
-              <div className="h-px w-12 sm:w-16 md:w-20 bg-gradient-to-r from-transparent via-[#C3A161]/60 to-[#C3A161]" />
-              <Heart size={14} className="sm:w-4 sm:h-4 md:w-5 md:h-5 text-[#C3A161] fill-[#C3A161]/40 drop-shadow-md animate-pulse" />
-              <Sparkles size={12} className="sm:w-3 sm:h-3 md:w-4 md:h-4 text-[#C3A161]/80 drop-shadow-md" />
-              <Heart size={14} className="sm:w-4 sm:h-4 md:w-5 md:h-5 text-[#C3A161] fill-[#C3A161]/40 drop-shadow-md animate-pulse" />
-              <div className="h-px w-12 sm:w-16 md:w-20 bg-gradient-to-l from-transparent via-[#C3A161]/60 to-[#C3A161]" />
-            </div>
-          </div>
-
-          {/* Couple names - keeping the arrangement as requested */}
-          <div className="space-y-3 sm:space-y-4 md:space-y-5">
-            <h1
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold tracking-[0.02em] sm:tracking-[0.03em] md:tracking-[0.04em] drop-shadow-2xl leading-tight"
-              style={{
-                color: '#FFFFFF',
-                textShadow: "0 2px 20px rgba(195, 161, 97, 0.4), 0 4px 40px rgba(10, 52, 40, 0.6), 0 8px 60px rgba(0, 0, 0, 0.5)",
-                fontFamily: "var(--font-serif)",
-                letterSpacing: "0.05em",
-              }}
-            >
-              <span className="inline-block transform transition-all duration-700 hover:scale-105">
-                {siteConfig.couple.groomNickname}
-              </span>
-              <span className="mx-2 sm:mx-3 md:mx-4 text-[#C3A161]">&</span>
-              <span className="inline-block transform transition-all duration-700 hover:scale-105">
-                {siteConfig.couple.brideNickname}
-              </span>
-            </h1>
-            {/* Elegant divider */}
-            <div className="h-0.5 sm:h-1 w-20 sm:w-24 md:w-32 lg:w-40 mx-auto bg-gradient-to-r from-transparent via-[#C3A161] to-transparent shadow-[0_0_10px_rgba(195,161,97,0.5)]" />
-          </div>
-
-          {/* Tagline with improved typography */}
-          <div className="space-y-3 sm:space-y-4 md:space-y-5 pt-2 sm:pt-4">
-            <p
-              className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-serif font-light italic text-[#FFFFFF] drop-shadow-lg tracking-wide"
-              style={{
-                textShadow: "0 2px 12px rgba(10, 52, 40, 0.8), 0 1px 4px rgba(0,0,0,0.7)",
-              }}
-            >
-              {siteConfig.wedding.tagline}
-            </p>
-
-            {/* Date and time information */}
-            <div className="space-y-2 sm:space-y-2.5 md:space-y-3 pt-2">
-              <p
-                className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-light text-[#FFFFFF] drop-shadow-lg"
-                style={{
-                  textShadow: "0 2px 10px rgba(10, 52, 40, 0.8), 0 1px 3px rgba(0,0,0,0.7)",
-                }}
-              >
-                {siteConfig.ceremony.day}, {siteConfig.ceremony.date}
-              </p>
-              <p
-                className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-medium text-[#C3A161] drop-shadow-lg tracking-wider"
-                style={{
-                  textShadow: "0 2px 10px rgba(10, 52, 40, 0.9), 0 1px 4px rgba(195, 161, 97, 0.4)",
-                }}
-              >
-                {siteConfig.ceremony.time} • {siteConfig.wedding.venue.toUpperCase()}
-              </p>
-            </div>
-          </div>
-
-          {/* CTA Buttons - Horizontal layout on all devices */}
-          <div className="pt-6 sm:pt-8 md:pt-10 lg:pt-12 flex flex-row gap-2 sm:gap-3 md:gap-4 justify-center items-center max-w-2xl mx-auto w-full px-2">
-            <a
-              href="#narrative"
-              className="group flex-1 max-w-[200px] sm:max-w-none sm:min-w-[160px] md:min-w-[180px] px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 py-2.5 sm:py-3 md:py-3.5 lg:py-4 rounded-lg sm:rounded-xl font-semibold sm:font-bold transition-all duration-500 ease-out uppercase tracking-wider text-xs sm:text-sm md:text-base whitespace-nowrap relative overflow-hidden border-2 backdrop-blur-sm"
-              style={{
-                backgroundColor: "rgba(16, 101, 82, 0.95)",
-                borderColor: "rgba(195, 161, 97, 0.4)",
-                color: "#FFFFFF",
-                boxShadow: "0 4px 20px rgba(10, 52, 40, 0.4), 0 2px 6px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#106552";
-                e.currentTarget.style.borderColor = "rgba(195, 161, 97, 0.7)";
-                e.currentTarget.style.transform = "translateY(-3px) scale(1.02)";
-                e.currentTarget.style.boxShadow = "0 8px 30px rgba(16, 101, 82, 0.6), 0 4px 12px rgba(0,0,0,0.4), 0 0 20px rgba(195, 161, 97, 0.3)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "rgba(16, 101, 82, 0.95)";
-                e.currentTarget.style.borderColor = "rgba(195, 161, 97, 0.4)";
-                e.currentTarget.style.transform = "translateY(0) scale(1)";
-                e.currentTarget.style.boxShadow = "0 4px 20px rgba(10, 52, 40, 0.4), 0 2px 6px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)";
-              }}
-              onMouseDown={(e) => {
-                e.currentTarget.style.transform = "translateY(-1px) scale(0.98)";
-              }}
-              onMouseUp={(e) => {
-                e.currentTarget.style.transform = "translateY(-3px) scale(1.02)";
-              }}
-            >
-              <span className="relative z-10 flex items-center justify-center gap-1.5 sm:gap-2">
-                Our Love Story
-                <Heart size={12} className="w-3 h-3 sm:w-4 sm:h-4 opacity-70 group-hover:opacity-100 transition-opacity duration-300 flex-shrink-0" />
-              </span>
-              <div 
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-[#C3A161]/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 transform -skew-x-12 -translate-x-full group-hover:translate-x-full"
+          
+          {/* Monogram - Center */}
+          <div className="flex justify-center mb-2 sm:mb-4">
+            <div className="relative w-28 h-28 sm:w-36 sm:h-36 md:w-48 md:h-48 lg:w-56 lg:h-56">
+              <Image
+                src="/monogram/image.png"
+                alt="Marvin & Annie Monogram"
+                fill
+                className="object-contain"
+                priority
               />
-            </a>
+            </div>
+          </div>
+
+          {/* Opening Text */}
+          <p className="text-xs sm:text-sm md:text-base lg:text-lg font-[family-name:var(--font-crimson)] font-normal text-[#3C3C3C] tracking-wide px-4">
+            Together with our families, we,
+          </p>
+
+          {/* Groom Name */}
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-[family-name:var(--font-crimson)] font-normal text-[#3C3C3C] uppercase tracking-[0.12em] sm:tracking-[0.15em] leading-tight px-2">
+            MARVIN ROY
+          </h1>
+
+          {/* And - Script Style */}
+          <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-[family-name:var(--font-ephesis)] text-[#3C3C3C] -my-2 sm:-my-3">
+            and
+          </p>
+
+          {/* Bride Name */}
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-[family-name:var(--font-crimson)] font-normal text-[#3C3C3C] uppercase tracking-[0.12em] sm:tracking-[0.15em] leading-tight px-2">
+            ANNIE JOY
+          </h1>
+
+          {/* Request Text */}
+          <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] font-normal text-[#3C3C3C] tracking-wide max-w-xl mx-auto px-6 sm:px-8 leading-relaxed">
+            request the honor of your presence as we are unified in marriage before our Lord God.
+          </p>
+
+          {/* Date Display */}
+          <div className="space-y-2 pt-2 sm:pt-4 px-4">
+            <div className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4">
+              <div className="h-px w-8 sm:w-12 md:w-16 bg-[#3C3C3C]/30" />
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl font-[family-name:var(--font-crimson)] font-normal text-[#3C3C3C]">
+                March
+              </p>
+              <div className="h-px w-8 sm:w-12 md:w-16 bg-[#3C3C3C]/30" />
+            </div>
+            
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 md:gap-3 text-[#3C3C3C]">
+              <span className="text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] uppercase tracking-wider">SATURDAY</span>
+              <span className="text-5xl sm:text-5xl md:text-6xl font-[family-name:var(--font-crimson)] font-light my-1 sm:my-0">14</span>
+              <span className="text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] uppercase tracking-wider">2 O'CLOCK</span>
+            </div>
+            
+            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-crimson)] font-light text-[#3C3C3C]">
+              2026
+            </p>
+          </div>
+
+          {/* Ceremony and Reception */}
+          <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-[family-name:var(--font-ephesis)] text-[#3C3C3C] pt-2 sm:pt-4 px-4">
+            Ceremony and Reception
+          </p>
+
+          {/* Venue Details */}
+          <div className="space-y-1 pb-4 sm:pb-6 px-4">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg font-[family-name:var(--font-crimson)] font-semibold text-[#3C3C3C] uppercase tracking-wider">
+              ILOILO CONVENTION CENTER
+            </p>
+            <p className="text-[10px] sm:text-xs md:text-sm lg:text-base font-[family-name:var(--font-crimson)] font-normal text-[#3C3C3C] leading-relaxed">
+              Megaworld Blvd, Iloilo Business Park, Mandurriao
+            </p>
+            <p className="text-[10px] sm:text-xs md:text-sm lg:text-base font-[family-name:var(--font-crimson)] font-normal text-[#3C3C3C]">
+              Iloilo City, Philippines
+            </p>
+          </div>
+
+          {/* Simple CTA Button */}
+          <div className="pt-4 sm:pt-6">
             <a
               href="#guest-list"
-              className="group flex-1 max-w-[200px] sm:max-w-none sm:min-w-[160px] md:min-w-[180px] px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 py-2.5 sm:py-3 md:py-3.5 lg:py-4 rounded-lg sm:rounded-xl font-semibold sm:font-bold transition-all duration-500 ease-out uppercase tracking-wider text-xs sm:text-sm md:text-base whitespace-nowrap relative overflow-hidden border-2 backdrop-blur-sm"
-              style={{
-                backgroundColor: "rgba(117, 26, 44, 0.95)",
-                borderColor: "rgba(195, 161, 97, 0.4)",
-                color: "#FFFFFF",
-                boxShadow: "0 4px 20px rgba(117, 26, 44, 0.4), 0 2px 6px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#751A2C";
-                e.currentTarget.style.borderColor = "rgba(195, 161, 97, 0.7)";
-                e.currentTarget.style.transform = "translateY(-3px) scale(1.02)";
-                e.currentTarget.style.boxShadow = "0 8px 30px rgba(117, 26, 44, 0.6), 0 4px 12px rgba(0,0,0,0.4), 0 0 20px rgba(195, 161, 97, 0.3)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "rgba(117, 26, 44, 0.95)";
-                e.currentTarget.style.borderColor = "rgba(195, 161, 97, 0.4)";
-                e.currentTarget.style.transform = "translateY(0) scale(1)";
-                e.currentTarget.style.boxShadow = "0 4px 20px rgba(117, 26, 44, 0.4), 0 2px 6px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)";
-              }}
-              onMouseDown={(e) => {
-                e.currentTarget.style.transform = "translateY(-1px) scale(0.98)";
-              }}
-              onMouseUp={(e) => {
-                e.currentTarget.style.transform = "translateY(-3px) scale(1.02)";
-              }}
+              className="inline-flex items-center gap-2 px-6 sm:px-8 md:px-10 lg:px-12 py-2.5 sm:py-3 md:py-3.5 lg:py-4 font-[family-name:var(--font-crimson)] font-semibold text-xs sm:text-sm md:text-base lg:text-lg text-[#E8DCC8] bg-[#3C3C3C] hover:bg-[#3C3C3C]/90 active:bg-[#3C3C3C]/95 transition-all duration-300 tracking-wider uppercase border border-[#3C3C3C] hover:scale-105 active:scale-100 shadow-md"
             >
-              <span className="relative z-10 flex items-center justify-center gap-1.5 sm:gap-2">
-                RSVP
-                <Sparkles size={12} className="w-3 h-3 sm:w-4 sm:h-4 opacity-70 group-hover:opacity-100 transition-opacity duration-300 flex-shrink-0" />
-              </span>
-              <div 
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-[#FFFFFF]/25 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 transform -skew-x-12 -translate-x-full group-hover:translate-x-full"
-              />
+              <Heart size={14} className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              RSVP
             </a>
           </div>
         </div>

@@ -1,44 +1,29 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { ChevronDown } from "lucide-react"
-import { Section } from "@/components/section"
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
+import { Section } from "@/components/section";
 
 interface FAQItem {
-  question: string
-  answer: string
+  question: string;
+  answer: string;
 }
 
 const faqItems: FAQItem[] = [
   {
+    question: "When and where is the wedding?",
+    answer:
+      "The wedding ceremony and reception will be held on Saturday, March 14, 2026, at 2 O'CLOCK at the Iloilo Convention Center, Megaworld Blvd, Iloilo Business Park, Mandurriao, Iloilo City, Philippines.",
+  },
+  {
     question: "What is the dress code?",
     answer:
-      "Principal Sponsors: We encourage wearing Barong or Filipiniana to honor our celebration.\n\nGuests: We encourage formal or casual attire so you can celebrate comfortably with us.",
-  },
-  {
-    question: "When and where is the ceremony?",
-    answer:
-      "The ceremony is on December 28, 2025 at 11:00 AM at SMDC Jazz Residence.",
-  },
-  {
-    question: "Where is the reception?",
-    answer:
-      "The reception is at 12:00 NN at the same venue: SMDC Jazz Residence.",
+      "Principal Sponsors (Ninong): Black suit\nPrincipal Sponsors (Ninang): Long gown in Black or Emerald Green\n\nGuests (Gentlemen): Long-sleeved shirt or suit (optional)\nGuests (Ladies): Long gown or long dress in Beige, Chocolate brown, or Taupe\n\nPlease note: T-shirts, denim, and sports shoes are not permitted.",
   },
   {
     question: "When is the RSVP deadline?",
     answer:
-      "Kindly RSVP by December 15, 2025. Your response helps us finalize our guest list. Thank you! [RSVP_LINK]Click here to RSVP[/RSVP_LINK]",
-  },
-  {
-    question: "Do you have a gift registry?",
-    answer:
-      "Your presence is the greatest gift. If you feel inclined to give, we would appreciate monetary gifts given in person so we can thank you personally. You can also use the GCash QR code available in the Gift Registry section.",
-  },
-  {
-    question: "Is there parking available?",
-    answer:
-      "Yes! Ample parking is available at the venue. We recommend arriving 15-20 minutes early to secure a spot.",
+      "Please confirm by January 14, 2026. We have reserved seats for you, and we look forward to celebrating with you! Your response helps us finalize our guest list and seating arrangements.\n\nFor any questions or concerns, contact us at: 09088993835 / 09453324669\n\n[RSVP_LINK]Click here to RSVP[/RSVP_LINK]",
   },
   {
     question: "Can I bring a plus one?",
@@ -51,58 +36,63 @@ const faqItems: FAQItem[] = [
       "Please mention any dietary restrictions, allergies, or special meal requirements in the message field when you submit your RSVP.",
   },
   {
+    question: "Do you have a gift registry?",
+    answer:
+      "Your presence at our wedding is the most precious gift. Should you wish to share a blessing, red envelopes will be provided for your convenience.",
+  },
+  {
+    question: "Is there parking available?",
+    answer:
+      "Yes! The Iloilo Convention Center has ample parking facilities. We recommend arriving 15-20 minutes early to secure a spot and get settled comfortably.",
+  },
+  {
     question: "Can I take photos during the ceremony?",
     answer:
-      "We have a professional photographer, but you're welcome to take photos! We'll have a dedicated time for group photos after the ceremony.",
+      "We have a professional photographer and videographer to capture our special moments. However, you're more than welcome to take photos! We'll also have a dedicated time for group photos after the ceremony.",
+  },
+  {
+    question: "How do I get to the venue?",
+    answer:
+      "The Iloilo Convention Center is located at Megaworld Blvd, Iloilo Business Park. You can use the 'Get Directions' button in the Event Details section to open Google Maps for easy navigation.",
   },
   {
     question: "What should I do if I need to cancel my RSVP?",
     answer:
       "Please contact us as soon as possible if your plans change. You can update your RSVP by searching for your name in the RSVP section.",
   },
-]
+];
 
 export function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleItem = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index)
-  }
+    setOpenIndex(openIndex === index ? null : index);
+  };
 
   return (
     <Section
       id="faq"
-      className="relative bg-gradient-to-b from-[#0A3428] via-[#106552]/90 to-[#0A3428] py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden"
+      className="relative bg-[#E8DCC8]/80 py-16 sm:py-20 md:py-24 lg:py-28 overflow-hidden"
     >
-      {/* Subtle background elements */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Soft gradient overlays */}
-        <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#C3A161]/5 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#C3A161]/5 to-transparent" />
-        
-        {/* Bottom-left flower decoration */}
-        <img
-          src="/decoration/left-bottom-left-flower.png"
-          alt=""
-          aria-hidden="true"
-          className="absolute bottom-0 left-0 z-10 w-64 sm:w-80 md:w-96 lg:w-[28rem] xl:w-[32rem] opacity-90 select-none pointer-events-none"
-        />
-        
-        {/* Bottom-right flower decoration */}
-        <img
-          src="/decoration/left-bottom-left-flower.png"
-          alt=""
-          aria-hidden="true"
-          className="absolute bottom-0 right-0 z-10 w-64 sm:w-80 md:w-96 lg:w-[28rem] xl:w-[32rem] opacity-90 select-none pointer-events-none scale-x-[-1]"
-        />
-      </div>
-
       {/* Section Header */}
-      <div className="relative z-10 text-center mb-8 sm:mb-10 md:mb-12 px-4">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold text-[#FFFFFF] mb-3 sm:mb-4 text-balance">
+      <div className="relative z-10 text-center mb-12 sm:mb-16 md:mb-20 px-4 sm:px-6">
+        <h2
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-[family-name:var(--font-crimson)] font-normal text-white mb-6 sm:mb-8 uppercase tracking-[0.12em] sm:tracking-[0.15em]"
+          style={{
+            textShadow:
+              "0 0 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.5)",
+          }}
+        >
           Frequently Asked Questions
         </h2>
-        <p className="text-sm sm:text-base md:text-lg lg:text-xl text-[#FFFFFF]/90 font-sans font-light max-w-2xl mx-auto px-2 sm:px-4 leading-relaxed">
+
+        <p
+          className="text-base sm:text-lg md:text-xl font-[family-name:var(--font-crimson)] text-white font-light max-w-xl mx-auto leading-relaxed tracking-wide px-4"
+          style={{
+            textShadow:
+              "0 0 15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.5)",
+          }}
+        >
           Everything you need to know
         </p>
       </div>
@@ -110,33 +100,32 @@ export function FAQ() {
       {/* FAQ content */}
       <div className="relative z-10 max-w-4xl mx-auto px-3 sm:px-4 md:px-6">
         {/* Main card */}
-        <div className="relative bg-white/95 backdrop-blur-sm border border-[#C3A161]/30 rounded-xl sm:rounded-2xl shadow-2xl overflow-hidden">
-          {/* Inner gold border */}
-          <div className="absolute inset-2 sm:inset-3 md:inset-4 border border-[#C3A161] rounded-lg sm:rounded-xl pointer-events-none" />
-          
-          {/* FAQ items */}
-          <div className="relative p-4 sm:p-6 md:p-8 lg:p-10">
+        <div className="relative group">
+          <div className="absolute -inset-1 bg-gradient-to-br from-[#1A1A1A]/20 to-[#1A1A1A]/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg" />
+
+          <div className="relative bg-white backdrop-blur-sm border-2 border-[#1A1A1A]/40 rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-10 lg:p-12 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-[#1A1A1A]/60 overflow-hidden">
+            {/* FAQ items */}
             <div className="space-y-3 sm:space-y-4">
               {faqItems.map((item, index) => {
-                const isOpen = openIndex === index
-                const contentId = `faq-item-${index}`
+                const isOpen = openIndex === index;
+                const contentId = `faq-item-${index}`;
                 return (
                   <div
                     key={index}
-                    className="rounded-lg sm:rounded-xl border border-[#C3A161]/30 bg-white hover:bg-[#C3A161]/5 transition-all duration-300 hover:shadow-md overflow-hidden"
+                    className="rounded-lg sm:rounded-xl border border-[#1A1A1A]/20 bg-white hover:bg-[#E8DCC8]/10 transition-all duration-300 hover:shadow-md hover:border-[#1A1A1A]/30 overflow-hidden"
                   >
                     <button
                       onClick={() => toggleItem(index)}
-                      className="group w-full px-4 sm:px-5 md:px-6 py-4 sm:py-5 flex items-center justify-between text-left outline-none focus-visible:ring-2 focus-visible:ring-[#C3A161]/50 focus-visible:ring-offset-2 transition-colors"
+                      className="group w-full px-4 sm:px-5 md:px-6 py-4 sm:py-5 flex items-center justify-between text-left outline-none focus-visible:ring-2 focus-visible:ring-[#1A1A1A]/50 focus-visible:ring-offset-2 transition-colors"
                       aria-expanded={isOpen}
                       aria-controls={contentId}
                     >
-                      <span className="font-semibold text-[#0A3428] pr-4 text-sm sm:text-base md:text-lg font-sans leading-relaxed group-hover:text-[#106552] transition-colors duration-200">
+                      <span className="font-[family-name:var(--font-crimson)] font-semibold text-[#1A1A1A] pr-4 text-sm sm:text-base md:text-lg leading-relaxed group-hover:text-[#3C3C3C] transition-colors duration-200">
                         {item.question}
                       </span>
                       <ChevronDown
                         size={20}
-                        className={`text-[#C3A161] flex-shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""} sm:w-5 sm:h-5`}
+                        className={`text-[#1A1A1A] flex-shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""} sm:w-5 sm:h-5`}
                         aria-hidden
                       />
                     </button>
@@ -145,28 +134,36 @@ export function FAQ() {
                       id={contentId}
                       role="region"
                       className={`grid transition-all duration-300 ease-out ${
-                        isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                        isOpen
+                          ? "grid-rows-[1fr] opacity-100"
+                          : "grid-rows-[0fr] opacity-0"
                       }`}
                     >
                       <div className="overflow-hidden">
-                        <div className="px-4 sm:px-5 md:px-6 py-3 sm:py-4 bg-[#C3A161]/10 border-t border-[#C3A161]/20">
+                        <div className="px-4 sm:px-5 md:px-6 py-3 sm:py-4 md:py-5 bg-[#E8DCC8]/20 border-t border-[#1A1A1A]/20">
                           {item.answer.includes("[RSVP_LINK]") ? (
-                            <p className="text-[#0A3428] leading-relaxed text-sm sm:text-base md:text-lg font-sans whitespace-pre-line">
+                            <p className="text-[#1A1A1A]/80 leading-relaxed text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] whitespace-pre-line">
                               {item.answer.split("[RSVP_LINK]")[0]}
-                              <a 
-                                href="#guest-list" 
-                                className="text-[#106552] underline font-semibold hover:text-[#0A3428] transition-colors"
+                              <a
+                                href="#guest-list"
+                                className="text-[#1A1A1A] underline font-semibold hover:text-[#3C3C3C] transition-colors"
                                 onClick={(e) => {
-                                  e.preventDefault()
-                                  document.getElementById('guest-list')?.scrollIntoView({ behavior: 'smooth' })
+                                  e.preventDefault();
+                                  document
+                                    .getElementById("guest-list")
+                                    ?.scrollIntoView({ behavior: "smooth" });
                                 }}
                               >
-                                {item.answer.match(/\[RSVP_LINK\](.*?)\[\/RSVP_LINK\]/)?.[1]}
+                                {
+                                  item.answer.match(
+                                    /\[RSVP_LINK\](.*?)\[\/RSVP_LINK\]/,
+                                  )?.[1]
+                                }
                               </a>
                               {item.answer.split("[/RSVP_LINK]")[1]}
                             </p>
                           ) : (
-                            <p className="text-[#0A3428] leading-relaxed text-sm sm:text-base md:text-lg font-sans whitespace-pre-line">
+                            <p className="text-[#1A1A1A]/80 leading-relaxed text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] whitespace-pre-line">
                               {item.answer}
                             </p>
                           )}
@@ -174,12 +171,12 @@ export function FAQ() {
                       </div>
                     </div>
                   </div>
-                )
+                );
               })}
             </div>
           </div>
         </div>
       </div>
     </Section>
-  )
+  );
 }
