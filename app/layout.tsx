@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://renee-rose-and-steven-paul-invitati.vercel.app/LoveStory/image.png",
+        url: "https://renee-rose-and-steven-paul-invitati.vercel.app/gallery/image.png",
         width: 1200,
         height: 630,
         alt: "Steven & Renee Wedding Invitation - March 21, 2026",
@@ -81,7 +81,7 @@ export const metadata: Metadata = {
     title: "Steven & Renee Wedding Invitation",
     description:
       "You're invited to the wedding of Steven & Renee! March 21, 2026. RSVP, view our gallery, and leave a message! #StevenAndReneeWedding",
-    images: ["https://renee-rose-and-steven-paul-invitati.vercel.app/LoveStory/image.png"],
+    images: ["https://renee-rose-and-steven-paul-invitati.vercel.app/gallery/image.png"],
     creator: "@stevenandrenee",
   },
   robots: {
@@ -133,7 +133,7 @@ export const metadata: Metadata = {
           },
         },
       ],
-      image: ["https://renee-rose-and-steven-paul-invitati.vercel.app/LoveStory/image.png"],
+      image: ["https://renee-rose-and-steven-paul-invitati.vercel.app/gallery/image.png"],
       description:
         "You're invited to the wedding of Steven & Renee! Join us on March 21, 2026 at Santa Clara Chapel and The Ruins, Talisay. RSVP, read our love story, view our gallery, and leave a message for the couple.",
       organizer: {
