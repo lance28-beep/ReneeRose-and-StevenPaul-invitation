@@ -21,13 +21,13 @@ export function Hero() {
         }`}>
           
           {/* Monogram - Center */}
-          <div className="flex justify-center mb-2 sm:mb-4">
-            <div className="relative w-28 h-28 sm:w-36 sm:h-36 md:w-48 md:h-48 lg:w-56 lg:h-56">
+          <div className="w-full mt-6 sm:mt-8">
+            <div className="relative w-full aspect-[4/1] sm:aspect-[5/1] md:aspect-[6/1] min-h-[110px] sm:min-h-[140px] md:min-h-[160px] lg:min-h-[180px]">
               <Image
                 src="/monogram/image.png"
                 alt="Steven & Renee Monogram"
                 fill
-                className="object-contain"
+                className="object-cover object-center"
                 priority
               />
             </div>
@@ -43,9 +43,9 @@ export function Hero() {
             Together with our families, we,
           </p>
 
-          {/* Groom Name */}
+          {/* Bride Name */}
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-[family-name:var(--font-crimson)] font-normal text-[#4A4442] uppercase tracking-[0.12em] sm:tracking-[0.15em] leading-tight px-2 elegant-text-shadow">
-            STEVEN PAUL MORAÑA
+            RENEE ROSE TORRES
           </h1>
 
           {/* And - Script Style with gold accent */}
@@ -53,9 +53,9 @@ export function Hero() {
             and
           </p>
 
-          {/* Bride Name */}
+          {/* Groom Name */}
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-[family-name:var(--font-crimson)] font-normal text-[#4A4442] uppercase tracking-[0.12em] sm:tracking-[0.15em] leading-tight px-2 elegant-text-shadow">
-            RENEE ROSE TORRES
+            STEVEN PAUL MORAÑA
           </h1>
 
           {/* Gold decorative line */}

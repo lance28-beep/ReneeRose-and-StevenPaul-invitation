@@ -97,7 +97,7 @@ export function Navbar() {
           <Link href="#home" className="flex-shrink-0 group relative z-10">
             <div className="flex items-center gap-2 sm:gap-3">
               {/* Monogram Image */}
-              <div className="relative w-9 h-9 sm:w-10 sm:h-10 flex-shrink-0 group-hover:scale-105 transition-all duration-300">
+              <div className="relative w-11 h-11 sm:w-12 sm:h-12 flex-shrink-0 group-hover:scale-105 transition-all duration-300">
                 <Image
                   src="/monogram/image.png"
                   alt="Steven & Renee Monogram"
@@ -109,8 +109,8 @@ export function Navbar() {
 
               {/* Names with gold gradient on hover */}
               <div className="text-xs sm:text-base md:text-lg font-[family-name:var(--font-crimson)] font-semibold group-hover:text-[#C9A55F] transition-all duration-300 tracking-[0.15em] sm:tracking-[0.2em] text-[#4A4442] uppercase">
-                {siteConfig.couple.groomNickname} &{" "}
-                {siteConfig.couple.brideNickname}
+                {siteConfig.couple.brideNickname} &{" "}
+                {siteConfig.couple.groomNickname}
               </div>
             </div>
           </Link>

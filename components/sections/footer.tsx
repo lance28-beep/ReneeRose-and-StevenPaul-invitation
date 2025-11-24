@@ -97,13 +97,13 @@ export function Footer() {
             {/* Save The Date Header */}
             <div className="text-center mb-8 sm:mb-10 md:mb-12">
               {/* Monogram */}
-              <div className="flex justify-center mb-4 sm:mb-6">
-                <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32">
+              <div className="w-full mb-5 sm:mb-7">
+                <div className="relative w-full aspect-[4/1] sm:aspect-[5/1] md:aspect-[6/1] min-h-[110px] sm:min-h-[140px] md:min-h-[160px] lg:min-h-[180px]">
                   <Image
                     src="/monogram/image.png"
                     alt="Steven & Renee Monogram"
                     fill
-                    className="object-contain drop-shadow-lg"
+                    className="object-cover object-center"
                     priority
                   />
                 </div>
@@ -198,7 +198,7 @@ export function Footer() {
                   <Heart className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-2xl sm:text-3xl md:text-4xl font-[family-name:var(--font-crimson)] font-semibold text-[#1A1A1A] uppercase tracking-[0.15em] sm:tracking-[0.2em]">
-                  Steven & Renee
+                  Renee & Steven
                 </h3>
               </div>
               <div className="space-y-4">
