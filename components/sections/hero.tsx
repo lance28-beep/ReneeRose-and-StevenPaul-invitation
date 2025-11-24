@@ -24,7 +24,7 @@ export function Hero() {
           <div className="w-full mt-6 sm:mt-8">
             <div className="relative w-full aspect-[4/1] sm:aspect-[5/1] md:aspect-[6/1] min-h-[110px] sm:min-h-[140px] md:min-h-[160px] lg:min-h-[180px]">
               <Image
-                src="/monogram/image.png"
+                src="/monogram/newmonogram.png"
                 alt="Steven & Renee Monogram"
                 fill
                 className="object-cover object-center"
