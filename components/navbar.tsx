@@ -99,7 +99,7 @@ export function Navbar() {
               {/* Monogram Image */}
               <div className="relative w-11 h-11 sm:w-12 sm:h-12 flex-shrink-0 group-hover:scale-105 transition-all duration-300">
                 <Image
-                  src="/monogram/image.png"
+                  src="/monogram/newmonogram.png"
                   alt="Steven & Renee Monogram"
                   fill
                   className="object-contain"

@@ -309,7 +309,7 @@ export function SnapShare() {
 
               <div className="text-center">
                 <span className="block text-lg sm:text-xl md:text-2xl lg:text-3xl font-[family-name:var(--font-ephesis)] text-[#1A1A1A] font-normal">
-                  – Kenneth & Angel –
+                  – Steven & Renee –
                 </span>
               </div>
             </div>
