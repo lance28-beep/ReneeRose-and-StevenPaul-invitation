@@ -13,7 +13,7 @@ const faqItems: FAQItem[] = [
   {
     question: "When and where is the wedding?",
     answer:
-      "The wedding ceremony will be held on Saturday, March 21, 2026, at 3:00 PM at Santa Clara Chapel (Barangay Sang Birhen Parish Church), Santo Domingo Ave, Santa Clara Subdivision, Bacolod City, Negros Occidental.\n\nThe reception will follow at 4:30 PM at The Ruins, Talisay, Don Mariano L. Lacson Highway, Brgy. Zone 15, Talisay, Negros Occidental 6100.",
+      "The wedding ceremony will be held on Saturday, March 21, 2026, at 2:00 PM at Santa Clara Chapel (Barangay Sang Birhen Parish Church), Santo Domingo Ave, Santa Clara Subdivision, Bacolod City, Negros Occidental.\n\nThe reception will follow at 5:00 PM at The Ruins, Talisay, Don Mariano L. Lacson Highway, Brgy. Zone 15, Talisay, Negros Occidental 6100.",
   },
   {
     question: "What is the dress code?",

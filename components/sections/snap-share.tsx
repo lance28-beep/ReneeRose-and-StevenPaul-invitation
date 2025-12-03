@@ -308,8 +308,8 @@ export function SnapShare() {
               </div>
 
               <div className="text-center">
-                <span className="block text-lg sm:text-xl md:text-2xl lg:text-3xl font-[family-name:var(--font-ephesis)] text-[#1A1A1A] font-normal">
-                  – Steven & Renee –
+                <span className="block text-xs sm:text-base md:text-lg font-[family-name:var(--font-crimson)] font-semibold tracking-[0.15em] sm:tracking-[0.2em] text-[#4A4442] uppercase">
+                  Renee & Steven
                 </span>
               </div>
             </div>

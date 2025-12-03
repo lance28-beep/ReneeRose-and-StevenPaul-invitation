@@ -135,7 +135,7 @@ export function Details() {
 
                 {/* Time */}
                 <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-[family-name:var(--font-crimson)] font-semibold text-[#C9A55F] tracking-wide">
-                  3:00 PM
+                  2:00 PM
                 </p>
               </div>
 
@@ -227,7 +227,7 @@ export function Details() {
                   Starts at
                 </p>
                 <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-[family-name:var(--font-crimson)] font-semibold text-[#C9A55F] tracking-wide">
-                  4:30 PM
+                  5:00 PM
                 </p>
               </div>
 

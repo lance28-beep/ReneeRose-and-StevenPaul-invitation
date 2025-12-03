@@ -7,7 +7,7 @@ export const siteConfig = {
   },
   wedding: {
     date: "March 21, 2026",
-    time: "3:00 PM",
+    time: "2:00 PM",
     venue: "Santa Clara Chapel (Barangay Sang Birhen Parish Church)",
     tagline: "are getting married!",
     theme: "Elegant Wedding ✨",
@@ -32,7 +32,7 @@ export const siteConfig = {
     address: "Santo Domingo Ave, Santa Clara Subdivision, Bacolod City, Negros Occidental",
     date: "March 21, 2026",
     day: "Saturday",
-    time: "3:00 PM",
+    time: "2:00 PM",
     entourageTime: "2:00 PM",
     guestsTime: "2:30 PM",
   },
@@ -41,7 +41,7 @@ export const siteConfig = {
     venue: "The Ruins, Talisay",
     address: "Don Mariano L. Lacson Highway, Brgy. Zone 15, Talisay, Negros Occidental 6100",
     date: "March 21, 2026",
-    time: "4:30 PM",
+    time: "5:00 PM",
   },
   dressCode: {
     theme: "Elegant Wedding ✨",

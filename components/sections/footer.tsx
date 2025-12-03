@@ -171,7 +171,7 @@ export function Footer() {
 
               {/* Time with elegant styling */}
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-[family-name:var(--font-crimson)] font-semibold text-[#1A1A1A] tracking-wider mb-4 sm:mb-5">
-                3:00 PM
+                2:00 PM
               </p>
 
               {/* Bottom decorative line with gold accent */}
@@ -254,7 +254,7 @@ export function Footer() {
                 </div>
                 <div className="flex items-center gap-3">
                   <Clock className="w-4 h-4 text-[#C9A55F]" />
-                  <span>3:00 PM</span>
+                  <span>2:00 PM</span>
                 </div>
               </div>
             </motion.div>
@@ -278,7 +278,7 @@ export function Footer() {
                 </div>
                 <div className="flex items-center gap-3">
                   <Clock className="w-4 h-4 text-[#C9A55F]" />
-                  <span>4:30 PM</span>
+                  <span>5:00 PM</span>
                 </div>
               </div>
             </motion.div>
